@@ -28,4 +28,4 @@
 
 <h4> Autores </h4>
 
-<a href="https://github.com/NoxSlow99" target="_blank" name"autores"> Angel Colli </a>
+<a href="https://github.com/NoxSlow99" target="_blank" name="autores"> Angel Colli </a>
