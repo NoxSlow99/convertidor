@@ -11,7 +11,7 @@
 
 - [Tecnologías usadas](#tecnologías-usadas)
 
-- [Autores](#autores)
+- [Autores](#Autores)
 
 <h4> Descripción </h4>
 <p> Convertidor escrito en lenguaje Java. Su funcionalidad es poder hacer conversiones de divisas de distintos tipos de monedas</p>
@@ -28,4 +28,4 @@
 
 <h4> Autores </h4>
 
-<a href="https://github.com/NoxSlow99" target="_blank> Angel Colli </a>
+<a href="https://github.com/NoxSlow99" target="_blank"> Angel Colli </a>
