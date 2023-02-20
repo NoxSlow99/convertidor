@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package views;
+
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,12 +13,16 @@ public class InputView extends javax.swing.JFrame {
      */
     public InputView() {
         initComponents();
-        setSize(400, 150);
+        setSize(400, 180);
         setTitle("Datos");
         setResizable(false);
         setLocationRelativeTo(null);
         this.repaint();
     }
+
+    //double conversor = Double.parseDouble(txt_data.getText());
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,7 +47,7 @@ public class InputView extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("Ingrese la cantidad que desea convertir:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         txt_data.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         txt_data.addActionListener(new java.awt.event.ActionListener() {
@@ -53,15 +55,20 @@ public class InputView extends javax.swing.JFrame {
                 txt_dataActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 60, 350, -1));
+        jPanel1.add(txt_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, -1));
 
         btn_continue_data.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_continue_data.setText("Siguiente");
-        jPanel1.add(btn_continue_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, 25));
+        btn_continue_data.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_continue_dataActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_continue_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 105, -1, 25));
 
         btn_back_data.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_back_data.setText("Regresar");
-        jPanel1.add(btn_back_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, 26));
+        jPanel1.add(btn_back_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 105, -1, 26));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 150));
 
@@ -69,8 +76,19 @@ public class InputView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_dataActionPerformed
-        
+
     }//GEN-LAST:event_txt_dataActionPerformed
+
+    private void btn_continue_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continue_dataActionPerformed
+        if (txt_data.getText().equals("") || Double.parseDouble(txt_data.getText()) <= 0) {
+            JOptionPane.showMessageDialog(null, "Ingresa un numero valido");
+            txt_data.setText("");
+        } else {
+            ConversionOptionsView option_view = new ConversionOptionsView();
+            option_view.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btn_continue_dataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,6 +130,6 @@ public class InputView extends javax.swing.JFrame {
     public javax.swing.JButton btn_continue_data;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txt_data;
+    public javax.swing.JTextField txt_data;
     // End of variables declaration//GEN-END:variables
 }

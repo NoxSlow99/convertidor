@@ -1,5 +1,7 @@
 package views;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author angel
@@ -12,7 +14,7 @@ public class MenuView extends javax.swing.JFrame {
      */
     public MenuView() {
         initComponents();
-        setSize(400, 150);
+        setSize(400, 180);
         setTitle("Menu");
         setResizable(false);
         setLocationRelativeTo(null);
@@ -81,7 +83,6 @@ public class MenuView extends javax.swing.JFrame {
     }//GEN-LAST:event_cmb_menuActionPerformed
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
-        //int idMenu = cmb_menu.getSelectedIndex();
         if(cmb_menu.getSelectedIndex() == 0){
             InputView input = new InputView();
             input.setVisible(true);
