@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package views;
 
 /**
  *
  * @author angel
  */
+
 public class MenuView extends javax.swing.JFrame {
 
     /**
@@ -15,9 +12,10 @@ public class MenuView extends javax.swing.JFrame {
      */
     public MenuView() {
         initComponents();
-        setSize(400, 200);
+        setSize(400, 150);
         setTitle("Menu");
         setResizable(false);
+        setLocationRelativeTo(null);
         this.repaint();
     }
 
@@ -39,31 +37,41 @@ public class MenuView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setText("Selecciona una opción de conversión:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        cmb_menu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cmb_menu.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         cmb_menu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Convertidor de divisas", "Convertidor de unidades de medida" }));
         cmb_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_menuActionPerformed(evt);
             }
         });
-        jPanel1.add(cmb_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel1.add(cmb_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 330, -1));
 
-        btn_enter.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_enter.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_enter.setText("Ok");
-        jPanel1.add(btn_enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 80, 25));
+        btn_enter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enterActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 105, 80, 25));
 
-        btn_cancel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_cancel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_cancel.setText("Cancel");
-        jPanel1.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 80, 26));
+        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 105, 80, 26));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 200));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 150));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -71,6 +79,19 @@ public class MenuView extends javax.swing.JFrame {
     private void cmb_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_menuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_menuActionPerformed
+
+    private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
+        //int idMenu = cmb_menu.getSelectedIndex();
+        if(cmb_menu.getSelectedIndex() == 0){
+            InputView input = new InputView();
+            input.setVisible(true);
+        }
+        this.dispose();
+    }//GEN-LAST:event_btn_enterActionPerformed
+
+    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_cancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,7 +132,7 @@ public class MenuView extends javax.swing.JFrame {
     public javax.swing.JButton btn_cancel;
     public javax.swing.JButton btn_enter;
     public javax.swing.JComboBox<Object> cmb_menu;
-    public javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
