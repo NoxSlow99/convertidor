@@ -71,7 +71,7 @@ public class MenuView extends javax.swing.JFrame {
                 btn_cancelActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 105, 80, 26));
+        jPanel1.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 105, 80, 25));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 150));
 
@@ -84,7 +84,7 @@ public class MenuView extends javax.swing.JFrame {
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
         if(cmb_menu.getSelectedIndex() == 0){
-            InputView input = new InputView();
+            ConversionDivisas input = new ConversionDivisas();
             input.setVisible(true);
         }
         this.dispose();
