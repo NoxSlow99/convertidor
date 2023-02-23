@@ -23,16 +23,22 @@ public class ConversionDivisas extends javax.swing.JFrame {
 
     //Creando método de conversiones
     public void conversionDivisa() {
-        /*  Valor de las monedas hasta la fecha del 22/02/2023 a las 12.50 hrs
-            Peso a Dolar = 0.055, Dolar a Peso = 18.33
-            Peso a Euro = 0.051, Euro a Peso = 19.48
-            Peso a Libras Esterlinas = 0.045, Libras Esterlinas a Peso = 22.12
-            Peso a Yen = 7.35, Yen a Peso = 0.14
-            Peso a Won sul-coreano = 70.94, Won sul-coreano = 0.014
+        /**
+         * Valor de las monedas hasta la fecha del 22/02/2023 a las 12.50 hrs
+         * Peso a Dolar = 0.055, Dolar a Peso = 18.33 Peso a Euro = 0.051, Euro
+         * a Peso = 19.48 Peso a Libras Esterlinas = 0.045, Libras Esterlinas a
+         * Peso = 22.12 Peso a Yen = 7.35, Yen a Peso = 0.14 Peso a Won
+         * sul-coreano = 70.94, Won sul-coreano = 0.014
          */
         double divisa = Double.parseDouble(txt_data_divisa.getText());
         DecimalFormat formato = new DecimalFormat("0.000"); //Limitando la muestra de numeros decimales
         
+        /*try {
+            
+        } catch (Exception e) {
+            
+        }*/
+
         if (divisa <= 0) {
             JOptionPane.showMessageDialog(null, "Ingresa un numero que sea valido.");
         } else {
@@ -60,6 +66,31 @@ public class ConversionDivisas extends javax.swing.JFrame {
                 case 4 -> {
                     divisa *= 70.94;
                     String message = "Tienes un total de $" + formato.format(divisa) + " won sul-coreano";
+                    JOptionPane.showMessageDialog(null, message);
+                }
+                case 5 -> {
+                    divisa *= 18.33;
+                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
+                    JOptionPane.showMessageDialog(null, message);
+                }
+                case 6 -> {
+                    divisa *= 19.48;
+                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
+                    JOptionPane.showMessageDialog(null, message);
+                }
+                case 7 -> {
+                    divisa *= 22.12;
+                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
+                    JOptionPane.showMessageDialog(null, message);
+                }
+                case 8 -> {
+                    divisa *= 0.14;
+                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
+                    JOptionPane.showMessageDialog(null, message);
+                }
+                case 9 -> {
+                    divisa *= 0.014;
+                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
                     JOptionPane.showMessageDialog(null, message);
                 }
             }
