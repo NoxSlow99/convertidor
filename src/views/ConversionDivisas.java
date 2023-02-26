@@ -14,7 +14,7 @@ public class ConversionDivisas extends javax.swing.JFrame {
      */
     public ConversionDivisas() {
         initComponents();
-        setSize(400, 270);
+        setSize(460, 300);
         setTitle("Datos");
         setResizable(false);
         setLocationRelativeTo(null);
@@ -30,18 +30,12 @@ public class ConversionDivisas extends javax.swing.JFrame {
          * Peso = 22.12 Peso a Yen = 7.35, Yen a Peso = 0.14 Peso a Won
          * sul-coreano = 70.94, Won sul-coreano = 0.014
          */
-        double divisa = Double.parseDouble(txt_data_divisa.getText());
-        DecimalFormat formato = new DecimalFormat("0.000"); //Limitando la muestra de numeros decimales
-        
-        /*try {
-            
-        } catch (Exception e) {
-            
-        }*/
 
-        if (divisa <= 0) {
-            JOptionPane.showMessageDialog(null, "Ingresa un numero que sea valido.");
+        if (txt_data_divisa.getText().isBlank()) {
+            JOptionPane.showMessageDialog(null, "No puede dejar el espacio vacío.");
         } else {
+            double divisa = Double.parseDouble(txt_data_divisa.getText()); //Agregando en una variable los datos
+            DecimalFormat formato = new DecimalFormat("0.000"); //Limitando la muestra de numeros decimales
             switch (cmb_currency_conversion_option.getSelectedIndex()) {
                 case 0 -> {
                     divisa *= 0.055;
@@ -120,42 +114,47 @@ public class ConversionDivisas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel1.setLabelFor(txt_data_divisa);
         jLabel1.setText("Ingrese la cantidad que desea convertir:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, -1));
 
-        txt_data_divisa.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jPanel1.add(txt_data_divisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 350, -1));
+        txt_data_divisa.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
+        txt_data_divisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_data_divisaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txt_data_divisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 70, 350, -1));
 
-        btn_continue_data.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_continue_data.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         btn_continue_data.setText("Ok");
         btn_continue_data.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_continue_dataActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_continue_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 100, 25));
+        jPanel1.add(btn_continue_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 110, 25));
 
-        btn_back_data.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_back_data.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         btn_back_data.setText("Regresar");
         btn_back_data.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_back_dataActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_back_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 100, 26));
+        jPanel1.add(btn_back_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 210, 110, 26));
 
-        cmb_currency_conversion_option.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        cmb_currency_conversion_option.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
         cmb_currency_conversion_option.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "De Pesos a Dólar", "De Pesos a Euros", "De Pesos a Libras Esterlinas", "De Pesos a Yen Japonés", "De Pesos a a Won sul-coreano", "De Dolar a Pesos", "De Euros a Pesos", "De Libras Esterlinas a Pesos", "De Yen Japonés a Pesos", "De Won sul-coreano a Pesos" }));
-        jPanel1.add(cmb_currency_conversion_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 300, -1));
+        jPanel1.add(cmb_currency_conversion_option, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 155, 300, -1));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setLabelFor(cmb_currency_conversion_option);
-        jLabel2.setText("Elija el tipo de moneda la que desea convertir:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 105, -1, -1));
+        jLabel2.setText("Elija el tipo de moneda al que desea convertir:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 115, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 240));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -169,6 +168,18 @@ public class ConversionDivisas extends javax.swing.JFrame {
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_back_dataActionPerformed
+
+    private void txt_data_divisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_data_divisaKeyTyped
+        //Guargando el evento
+        int key = evt.getKeyChar();
+        //Asignando el rango de los numeros
+        boolean numeros = key >= 48 && key <= 57;
+
+        //Validar si solo son numeros
+        if (!numeros) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_data_divisaKeyTyped
 
     /**
      * @param args the command line arguments
