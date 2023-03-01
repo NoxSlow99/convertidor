@@ -1,7 +1,6 @@
 package views;
 
-import java.text.DecimalFormat;
-import javax.swing.JOptionPane;
+import Controllers.DivisaController;
 
 /**
  *
@@ -19,76 +18,9 @@ public class ConversionDivisas extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         this.repaint();
-    }
 
-    //Creando método de conversiones
-    public void conversionDivisa() {
-        /**
-         * Valor de las monedas hasta la fecha del 22/02/2023 a las 12.50 hrs
-         * Peso a Dolar = 0.055, Dolar a Peso = 18.33 Peso a Euro = 0.051, Euro
-         * a Peso = 19.48 Peso a Libras Esterlinas = 0.045, Libras Esterlinas a
-         * Peso = 22.12 Peso a Yen = 7.35, Yen a Peso = 0.14 Peso a Won
-         * sul-coreano = 70.94, Won sul-coreano = 0.014
-         */
-
-        if (txt_data_divisa.getText().isBlank()) {
-            JOptionPane.showMessageDialog(null, "No puede dejar el espacio vacío.");
-        } else {
-            double divisa = Double.parseDouble(txt_data_divisa.getText()); //Agregando en una variable los datos
-            DecimalFormat formato = new DecimalFormat("0.000"); //Limitando la muestra de numeros decimales
-            switch (cmb_currency_conversion_option.getSelectedIndex()) {
-                case 0 -> {
-                    divisa *= 0.055;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " dolar(es)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 1 -> {
-                    divisa *= 0.051;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " euro(s)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 2 -> {
-                    divisa *= 0.045;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " libra(s)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 3 -> {
-                    divisa *= 7.35;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " yen(es)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 4 -> {
-                    divisa *= 70.94;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " won sul-coreano";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 5 -> {
-                    divisa *= 18.33;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 6 -> {
-                    divisa *= 19.48;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 7 -> {
-                    divisa *= 22.12;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 8 -> {
-                    divisa *= 0.14;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-                case 9 -> {
-                    divisa *= 0.014;
-                    String message = "Tienes un total de $" + formato.format(divisa) + " peso(s)";
-                    JOptionPane.showMessageDialog(null, message);
-                }
-            }
-        }
+        //Controlador de la vista
+        DivisaController divisa_controller = new DivisaController(this);
     }
 
     /**
@@ -120,20 +52,10 @@ public class ConversionDivisas extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, -1));
 
         txt_data_divisa.setFont(new java.awt.Font("SansSerif", 0, 15)); // NOI18N
-        txt_data_divisa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_data_divisaKeyTyped(evt);
-            }
-        });
         jPanel1.add(txt_data_divisa, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 70, 350, -1));
 
         btn_continue_data.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
         btn_continue_data.setText("Ok");
-        btn_continue_data.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_continue_dataActionPerformed(evt);
-            }
-        });
         jPanel1.add(btn_continue_data, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 110, 25));
 
         btn_back_data.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
@@ -159,27 +81,11 @@ public class ConversionDivisas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_continue_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continue_dataActionPerformed
-        conversionDivisa();
-    }//GEN-LAST:event_btn_continue_dataActionPerformed
-
     private void btn_back_dataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_back_dataActionPerformed
-        MenuView menu = new MenuView();
-        menu.setVisible(true);
+        MenuView view_menu = new MenuView();
+        view_menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_back_dataActionPerformed
-
-    private void txt_data_divisaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_data_divisaKeyTyped
-        //Guargando el evento
-        int key = evt.getKeyChar();
-        //Asignando el rango de los numeros
-        boolean numeros = key >= 48 && key <= 57;
-
-        //Validar si solo son numeros
-        if (!numeros) {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txt_data_divisaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -220,12 +126,12 @@ public class ConversionDivisas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btn_back_data;
+    private javax.swing.JButton btn_back_data;
     public javax.swing.JButton btn_continue_data;
-    private javax.swing.JComboBox<String> cmb_currency_conversion_option;
+    public javax.swing.JComboBox<String> cmb_currency_conversion_option;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txt_data_divisa;
+    public javax.swing.JTextField txt_data_divisa;
     // End of variables declaration//GEN-END:variables
 }

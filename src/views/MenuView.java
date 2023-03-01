@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
  *
  * @author angel
  */
-
 public class MenuView extends javax.swing.JFrame {
 
     /**
@@ -47,7 +46,7 @@ public class MenuView extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         cmb_menu.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
-        cmb_menu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Convertidor de divisas", "Convertidor de unidades de medida" }));
+        cmb_menu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Convertidor de divisas", "Convertidor de temperatura" }));
         cmb_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_menuActionPerformed(evt);
@@ -83,9 +82,12 @@ public class MenuView extends javax.swing.JFrame {
     }//GEN-LAST:event_cmb_menuActionPerformed
 
     private void btn_enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enterActionPerformed
-        if(cmb_menu.getSelectedIndex() == 0){
-            ConversionDivisas input = new ConversionDivisas();
-            input.setVisible(true);
+        if (cmb_menu.getSelectedIndex() == 0) {
+            ConversionDivisas view_divisa = new ConversionDivisas();
+            view_divisa.setVisible(true);
+        } else if (cmb_menu.getSelectedIndex() == 1) {
+            ConversionTemperatura view_temperatura = new ConversionTemperatura();
+            view_temperatura.setVisible(true);
         }
         this.dispose();
     }//GEN-LAST:event_btn_enterActionPerformed
