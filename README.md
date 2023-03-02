@@ -1,5 +1,14 @@
 <h1 align="center"> Convertidor </h1>
-<h4 align="center"> :construction: Proyecto en construción :construction: </h4>
+
+<p align="center">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/NoxSlow99/convertidor">
+
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/NoxSlow99/convertidor?style=social">
+
+<img alt="GitHub watchers" src="https://img.shields.io/github/watchers/NoxSlow99/convertidor?style=social">
+
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/NoxSlow99/convertidor">
+</p>
 
 <h2 name="indice"> Índice </h2>
 
